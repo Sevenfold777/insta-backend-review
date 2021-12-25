@@ -4,9 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": ""
+    "dev": "nodemon --exec babel-node server --delay 2",
+    "migrate": "npx prisma migrate dev",
+    "studio": "npx prisma studio"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^3.7.0",
+    "apollo-server": "^3.5.0",
+    "graphql-tools": "^8.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "nodemon": "^2.0.15",
+    "prisma": "^3.7.0"
+  }
 }
