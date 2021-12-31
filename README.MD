@@ -23,3 +23,6 @@
    - npm i bcrypt: hashing passwords
    - query가 반드시 하나는 존재해야함
    - prisma는 Promise를 반환하므로 반드시 async - await
+   - prisma prettier: npm install 해야 사용 가능
+   - jsonwebtoken: for issuing login token --> secret key는 .env에 저장
+   -

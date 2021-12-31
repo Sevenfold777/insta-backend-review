@@ -13,8 +13,4 @@ export default gql`
     createdAt: String!
     updatedAt: String!
   }
-
-  type Query {
-    id: Int!
-  }
 `;
