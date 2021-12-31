@@ -17,8 +17,10 @@
     "@graphql-tools/schema": "^8.3.1",
     "@prisma/client": "^3.7.0",
     "apollo-server": "^3.5.0",
+    "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
-    "graphql-tools": "^8.2.0"
+    "graphql-tools": "^8.2.0",
+    "prettier-plugin-prisma": "^3.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
