@@ -17,10 +17,6 @@ export default {
           uglypassword = await bcrypt.hash(newPassword, 10);
         }
 
-        const ok = await client.user.findFirst({
-          where: { id: loggedInUser.id },
-        });
-
         const updatedUser = await client.user.update({
           where: { id: loggedInUser.id },
           data: {
