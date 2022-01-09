@@ -10,8 +10,8 @@ export default gql`
     createdAt: String!
     updatedAt: String!
     likeNum: Int!
-    # comments: [Comment]
-    # commenNum: Int!
+    comments: [Comment]
+    commentNum: Int!
     isMine: Boolean!
     isLiked: Boolean!
     # userId    Int --> written in schema, not needed in gql
