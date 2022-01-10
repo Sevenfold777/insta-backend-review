@@ -24,6 +24,12 @@ export const getUser = async (token) => {
 export const protectedResolver =
   (ourResolver) => (root, args, context, info) => {
     if (!context.loggedInUser) {
+      // Query & Mutation Return Types are not the same --> HANDLE IT
+      const isQuery = info.operation.operation === "query";
+      if (isQuery) {
+        return null;
+      }
+
       return { ok: false, error: "Please Login to perform this action." };
     }
     return ourResolver(root, args, context, info);

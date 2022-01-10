@@ -1,6 +1,8 @@
 import { gql } from "apollo-server";
 
 export default gql`
+  scalar Upload
+
   type Mutation {
     editProfile(
       firstName: String
@@ -8,6 +10,8 @@ export default gql`
       userName: String
       email: String
       password: String
+      bio: String
+      avatar: Upload
     ): MutationResponse!
   }
 `;

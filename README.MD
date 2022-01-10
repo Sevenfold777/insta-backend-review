@@ -28,6 +28,11 @@
    - jsonwebtoken: for issuing login token --> secret key는 .env에 저장
 
 3. Apollo server express
+
    - SWAP into Apollo Server Express: npm install apollo-server-express apollo-server-core express graphql
    - apollo-server-express docs 참고하여 수정
    - npm i morgan - request log 확인 가능
+
+4. AWS
+   - npm i aws-sdk : aws 관련 사용 위하여
+   - shared.utils 참고, AWS.S3 사용
