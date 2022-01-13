@@ -28,5 +28,7 @@ export default {
 
       return id === loggedInUser.id;
     },
+
+    photos: ({ id }) => client.user.findUnique({ where: { id } }).photos(),
   },
 };

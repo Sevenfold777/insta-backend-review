@@ -36,3 +36,4 @@
 4. AWS
    - npm i aws-sdk : aws 관련 사용 위하여
    - shared.utils 참고, AWS.S3 사용
+   - apollo graphql upload - gql에 scalar Upload 선언해야 작동
