@@ -25,6 +25,7 @@
     "express": "^4.17.2",
     "graphql": "^15.8.0",
     "graphql-tools": "^8.2.0",
+    "graphql-upload": "^13.0.0",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "prettier-plugin-prisma": "^3.7.0"

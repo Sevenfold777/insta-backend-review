@@ -5,6 +5,7 @@ import http from "http";
 import schema from "./schema";
 import { getUser } from "./users/users.utils";
 import logger from "morgan";
+import { graphqlUploadExpress } from "graphql-upload";
 
 /// 아래는 apollo server 공식 doc
 /// 가장 기본적인 타입의 Server Defintion & run
@@ -50,6 +51,9 @@ async function startApolloServer() {
 
   // set logger(morgan)
   app.use(logger("tiny"));
+
+  // for uploading files
+  app.use(graphqlUploadExpress());
 
   // Additional Required Logic for integrating with Express
   await server.start();
