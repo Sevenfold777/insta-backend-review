@@ -40,4 +40,15 @@
    - apollo graphql upload - gql에 scalar Upload 선언해야 작동
 
 5. 기타 추가 사항
+
    - npm i graphql-upload : for file upload
+
+6. deploy(build)
+   - 기존: npm run dev: "nodemon --exec babel-node server --delay 2"
+   - nodemon 필요없음 (배포 후 변동 사항 없음)
+   - babel-node: production 시 사용하지 않음, 불필요하게 무겁고 메모리 사용이 많음
+   - 따라서 babel/cli 사용하여 build: npm install --save-dev @babel/core @babel/cli
+   - npm run build: "babel src --out-dir build"
+   - node ??/server
+   - build 후 npm start ("node build/server") --> regeneratorRuntime Error
+   - 해결: npm install --save-dev @babel/plugin-transform-runtime, npm install --save @babel/runtime

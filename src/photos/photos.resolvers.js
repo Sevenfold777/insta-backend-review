@@ -16,18 +16,26 @@ export default {
     comments: ({ id }) => client.photo.findUnique({ where: { id } }).comments(),
     commentNum: ({ id }) => client.comment.count({ where: { photoId: id } }),
 
-    likeNum: ({ photoId }) => client.like.count({ where: { photoId } }),
-    isLiked: async ({ photoId }, _, { loggedInUser }) => {
-      const targetLike = await client.like.findUnique({
-        where: { photoId_userId: { photoId, userId: loggedInUser.id } },
-        select: { id: true },
-      });
-      // if the target like does not exist
-      if (!targetLike) {
+    likeNum: ({ id }) => client.like.count({ where: { photoId: id } }),
+    isLiked: async ({ id }, _, { loggedInUser }) => {
+      if (!loggedInUser) {
         return false;
       }
-
-      return true;
+      const ok = await client.like.findUnique({
+        where: {
+          photoId_userId: {
+            photoId: id,
+            userId: loggedInUser.id,
+          },
+        },
+        select: {
+          id: true,
+        },
+      });
+      if (ok) {
+        return true;
+      }
+      return false;
     },
   },
 
