@@ -1,6 +1,9 @@
 require("dotenv").config();
 import { ApolloServer } from "apollo-server-express";
-import { ApolloServerPluginDrainHttpServer } from "apollo-server-core";
+import {
+  ApolloServerPluginDrainHttpServer,
+  ApolloServerPluginLandingPageGraphQLPlayground,
+} from "apollo-server-core";
 import express from "express";
 import http from "http";
 import schema from "./schema";
@@ -41,13 +44,17 @@ async function startApolloServer() {
 
   // Normal Apollo Server initialization + Drain Plugin
   const server = new ApolloServer({
+    introspection: true,
     schema,
     context: async ({ req }) => {
       return {
         loggedInUser: await getUser(req.headers.token),
       };
     },
-    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+    plugins: [
+      ApolloServerPluginDrainHttpServer({ httpServer }),
+      ApolloServerPluginLandingPageGraphQLPlayground(),
+    ],
   });
 
   // set logger(morgan)
